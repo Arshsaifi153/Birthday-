@@ -156,7 +156,11 @@ function startTypingEffect(element, text) {
 }
 
 continueBtn.addEventListener('click', () => {
-    userName = nameInput.value || "Rashiii";
+    userName = nameInput.value.trim() || "Rashiii";
+    if (userName.toLowerCase() !== "arsh") {
+        alert("Access Denied! ❌ Only Arsh can continue.");
+        return;
+    }
     displayName.textContent = userName;
     showPopup(`Hi, ${userName} 👋`, mainScreen);
     setTimeout(() => showPopup(`It's your birthday today!`, popupScreen), 1000);
